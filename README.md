@@ -119,7 +119,7 @@ Windows Service Project
         - Get configuration settings from database like file location, timer value, logs file location etc
          
        - SQLManager class has 2 function
-        - Both are generic methods using it read or write into into database.can be reused for other tables
+        - Both are generic methods using it read or write into database.can be reused for other tables
            
  ## How to deploy service
  
