@@ -19,25 +19,25 @@
   </li>
   
    <p>
-       protected override void OnStart(string[] args)
-       {
-          try
-          {
-              //
-              Helper.WriteToFile("Starting service ...");
-              tmrExecutor.Elapsed += new ElapsedEventHandler(OnElapsedTime); // adding Event
-              tmrExecutor.Interval = configSettings.Timer; // Reading timer info from database
-              tmrExecutor.Enabled = true;
-              tmrExecutor.Start()
-              //Read Patient Info from text file and then insert or update the value
-              patientService.ReadPatientInfo(configSettings)
-          }
-          catch (Exception ex)
-          {
-              //Helper file manage the logs
-              Helper.WriteToFile(ExceptionManager.GetExceptionStackTrace(ex) + "\nStack Trace\n" + ex.StackTrace);
-          }
-        }
+       protected override void OnStart(string[] args)<br>
+       {<br>
+          try<br>
+          {<br>
+              //<br>
+              Helper.WriteToFile("Starting service ...");<br>
+              tmrExecutor.Elapsed += new ElapsedEventHandler(OnElapsedTime); // adding Event<br>
+              tmrExecutor.Interval = configSettings.Timer; // Reading timer info from database<br><br>
+              tmrExecutor.Enabled = true;<br>
+              tmrExecutor.Start()<br>
+              //Read Patient Info from text file and then insert or update the value<br>
+              patientService.ReadPatientInfo(configSettings)<br>
+          }<br>
+          catch (Exception ex)<br>
+          {<br>
+              //Helper file manage the logs<br>
+              Helper.WriteToFile(ExceptionManager.GetExceptionStackTrace(ex) + "\nStack Trace\n" + ex.StackTrace);<br>
+          }<br>
+        }<br>
    </p>
  
  
