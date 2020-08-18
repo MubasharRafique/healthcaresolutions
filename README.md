@@ -2,10 +2,22 @@
 
 # Solution Include 2 Projects
 
-<ol>
+<ul>
   <li>Windows Service Project</li>
   <li>Web Project</li>
-<ol>
+<ul>
+  
+  
+ <ol>
+  <li>
+    Windows Service Project
+  </li>
+   <p>
+     Right click on Service1 file and select view code option.
+     
+     
+   </p>
+ </ol>
   
 
 
