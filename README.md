@@ -12,8 +12,9 @@ require Windows Service Project
    - Right click on Service1 file and select view code option.
    - Few cofiguration and services initialization on the top.
    - Starting point is OnStart Funtion. In this function handling the logs,interval and performing the read,insert,update cases
-       protected override void OnStart(string[] args)
-       {
+   
+    protected override void OnStart(string[] args)
+    {
           try
           {
               Helper.WriteToFile("Starting service ...");
@@ -29,7 +30,7 @@ require Windows Service Project
               Helper file manage the logs
               Helper.WriteToFile(ExceptionManager.GetExceptionStackTrace(ex) + "\nStack Trace\n" + ex.StackTrace);
           }
-        }
+    }
   
    - Right click on patientService.ReadPatientInfo(configSettings) and go to defination or press F12
    
