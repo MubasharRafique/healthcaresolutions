@@ -41,13 +41,12 @@
    </p><br>
     <li>
     Right click on patientService.ReadPatientInfo(configSettings) and go to defination or press F12<br>
-   </li>
     In this function, <br>
     1- We are reading information from text file default location c:\batch_Patient_12082020<br>
     2- Converting into data table<br>
     3- Converting into PatientTbl list<br>
     4- Calling generic method for to insert or update data<br>
- 
+   </li>
    <p>
        //Read Patients info from text file then insert new Or update exsiting into PatientTble db table<br>
         public void ReadPatientInfo(ServiceConfiguration configSettings)<br>
