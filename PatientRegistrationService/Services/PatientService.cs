@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -47,6 +48,13 @@ namespace PatientRegistrationService.Services
                     //Inert or Update info into Database
                     //I have consider MRN as unique value for to check info in database
                     _dbService.InsertOrUpdate(dbName, tableName, "MRN", colunm, row);
+                }
+
+                //After data entry delete the file
+                if (File.Exists(configSettings.FolderLocation))
+                {
+                    File.Delete(configSettings.FolderLocation);
+                    Helper.WriteToFile("...File deleted successfully");
                 }
                 Helper.WriteToFile("...Data Entry Finished");
 
