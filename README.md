@@ -37,7 +37,7 @@ Windows Service Project
           }
     }
   
-   - Inside OnStart function right click on patientService.ReadPatientInfo(configSettings) and go to definition or press F12
+  - Inside OnStart function right click on patientService.ReadPatientInfo(configSettings) and go to definition or press F12
    
     PatientService class has one method  ReadPatientInfo(ServiceConfiguration configSettings)
     In this function, 
@@ -86,7 +86,7 @@ Windows Service Project
             }
         }
         
-       - ConvertHelper class has 2 Methods
+      - ConvertHelper class has 2 Methods
        
          1- ConvertHelper.ReadInfoFromtxtFile(configSettings.FolderLocation);
             Using this method to read info from database and parsing into data table. It is completely generic code. It can be reused for any other scenario.
@@ -94,7 +94,7 @@ Windows Service Project
          2- ConvertDataTableToList
             using this method to parse data table data into specific class. This function is also generic and can be reused for other scenario.
         
-        - DBService calss has 3 Methods
+       - DBService calss has 3 Methods
           1- InsertOrUpdate
              using this method to write sql query and set cols and row for query paramters and before insert or update checking in the database if value exist or not.
              It is a generic method it can be reused for other tables
@@ -105,8 +105,8 @@ Windows Service Project
           3- GetConfiguration
              Get configuration settings from database like file location, timer value, logs file location etc
          
-         - SQLManager class has 2 function
+       - SQLManager class has 2 function
            Both are generic methods using it read or write into into database.can be reused for other tables
            
           
-             
+     require "How to deploy service"
