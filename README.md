@@ -20,21 +20,21 @@
   
    <p>
        protected override void OnStart(string[] args)<br>
-       {<br>
+       {
           try<br>
           {<br>
-              //<br>
+              
               Helper.WriteToFile("Starting service ...");<br>
               tmrExecutor.Elapsed += new ElapsedEventHandler(OnElapsedTime); // adding Event<br>
               tmrExecutor.Interval = configSettings.Timer; // Reading timer info from database<br><br>
               tmrExecutor.Enabled = true;<br>
               tmrExecutor.Start()<br>
-              //Read Patient Info from text file and then insert or update the value<br>
+              Read Patient Info from text file and then insert or update the value<br>
               patientService.ReadPatientInfo(configSettings)<br>
           }<br>
           catch (Exception ex)<br>
           {<br>
-              //Helper file manage the logs<br>
+              Helper file manage the logs<br>
               Helper.WriteToFile(ExceptionManager.GetExceptionStackTrace(ex) + "\nStack Trace\n" + ex.StackTrace);<br>
           }<br>
         }<br>
@@ -48,7 +48,7 @@
     4- Calling generic method for to insert or update data<br>
    </li>
    <p>
-       //Read Patients info from text file then insert new Or update exsiting into PatientTble db table<br>
+        Read Patients info from text file then insert new Or update exsiting into PatientTble db table<br>
         public void ReadPatientInfo(ServiceConfiguration configSettings)<br>
         {
             try<br>
