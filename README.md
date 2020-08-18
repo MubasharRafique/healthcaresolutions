@@ -14,9 +14,8 @@
   </li>
      Right click on Service1 file and select view code option.<br>
      Few cofiguration and services initialization on the top.
-   <p>
      Starting point is OnStart Funtion. In this function handling the logs,interval and performing the read,insert,update cases 
-     
+   <p>
        protected override void OnStart(string[] args)
        {
           try
@@ -37,15 +36,16 @@
           }
         }
    </p>
-   
+   <li>
     Right click on patientService.ReadPatientInfo(configSettings) and go to defination or press F12
+   </li>
     In this function, 
     1- We are reading information from text file default location c:\batch_Patient_12082020
     2- Converting into data table
     3- Converting into PatientTbl list
     4- Calling generic method for to insert or update data
+ 
    <p>
-        
        //Read Patients info from text file then insert new Or update exsiting into PatientTble db table
         public void ReadPatientInfo(ServiceConfiguration configSettings)
         {
