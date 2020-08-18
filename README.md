@@ -36,7 +36,10 @@
           }
         }
    </p>
-   <li>
+ 
+ </ol>
+ <ol>
+    <li>
     Right click on patientService.ReadPatientInfo(configSettings) and go to defination or press F12
    </li>
     In this function, 
@@ -85,7 +88,7 @@
             }
         }
     </p>
- </ol>
+  </ol>
   
 
 
