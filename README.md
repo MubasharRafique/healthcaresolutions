@@ -2,20 +2,16 @@
 
 # Solution Include 2 Projects
 
-<ul>
-  <li>Windows Service Project</li>
-  <li>Web Project</li>
-<ul>
 
- <ol>
-  <li>
-    Windows Service Project
-  </li>
+- Windows Service Project
+- Web Project
+
+
+require Windows Service Project
   
-   <p>
-    Right click on Service1 file and select view code option.<br>
-   Few cofiguration and services initialization on the top.<br>
-   Starting point is OnStart Funtion. In this function handling the logs,interval and performing the read,insert,update cases <br>
+   - Right click on Service1 file and select view code option.
+   - Few cofiguration and services initialization on the top.
+   - Starting point is OnStart Funtion. In this function handling the logs,interval and performing the read,insert,update cases
        protected override void OnStart(string[] args)
        {
           try
@@ -34,12 +30,10 @@
               Helper.WriteToFile(ExceptionManager.GetExceptionStackTrace(ex) + "\nStack Trace\n" + ex.StackTrace);
           }
         }
-   </p>
-    <li>
-    Right click on patientService.ReadPatientInfo(configSettings) and go to defination or press F12
+  
+   - Right click on patientService.ReadPatientInfo(configSettings) and go to defination or press F12
    
-   </li>
-   <p>
+  
     In this function, 
     1- We are reading information from text file default location c:\batch_Patient_12082020
     2- Converting into data table
@@ -83,7 +77,3 @@
                 throw;
             }
         }
-
-    </p>
-
-  </ol>
