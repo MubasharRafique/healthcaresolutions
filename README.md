@@ -40,16 +40,17 @@ Windows Service Project
   - Inside OnStart function right click on patientService.ReadPatientInfo(configSettings) and go to definition or press F12
    
     - PatientService class has one method  ReadPatientInfo(ServiceConfiguration configSettings)
-    - In this function
+     In this function
     - We are reading information from text file default location c:\batch_Patient_12082020
     - Converting into data table ConvertHelper.ReadInfoFromtxtFile(configSettings.FolderLocation)
     - Converting into PatientTbl list ConvertHelper.ConvertDataTableToList<PatientTbl>(tbl)
     - Calling generic method for to insert or update data _dbService.InsertOrUpdate(dbName, tableName, "MRN", colunm, row)
     
-        //Read Patients info from text file then insert new Or update exsiting into PatientTble db table
-        //Read file location from databse
-        public void ReadPatientInfo(ServiceConfiguration configSettings)
-        {
+       
+           public void ReadPatientInfo(ServiceConfiguration configSettings)
+           {
+            //Read Patients info from text file then insert new Or update exsiting into PatientTble db table
+            //Read file location from databse
             try
             {
                 //Read data from text file and insert into data table
@@ -86,7 +87,7 @@ Windows Service Project
             }
         }
         
-      - ConvertHelper class has 2 Methods
+     - ConvertHelper class has 2 Methods
        
          1- ConvertHelper.ReadInfoFromtxtFile(configSettings.FolderLocation);
             Using this method to read info from database and parsing into data table. It is completely generic code. It can be reused for any other scenario.
@@ -94,7 +95,7 @@ Windows Service Project
          2- ConvertDataTableToList
             using this method to parse data table data into specific class. This function is also generic and can be reused for other scenario.
         
-       - DBService calss has 3 Methods
+      - DBService calss has 3 Methods
           1- InsertOrUpdate
              using this method to write sql query and set cols and row for query paramters and before insert or update checking in the database if value exist or not.
              It is a generic method it can be reused for other tables
