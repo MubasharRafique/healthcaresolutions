@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PatientDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="PatientTbl">
+    <Key>
+      <PropertyRef Name="PatientID" />
+    </Key>
+    <Property Name="PatientID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Patient" Type="nvarchar" MaxLength="50" />
+    <Property Name="MRN" Type="bigint" />
+    <Property Name="CSN" Type="bigint" />
+    <Property Name="Gender" Type="nchar" MaxLength="10" />
+    <Property Name="HomePhone" Type="nvarchar" MaxLength="30" />
+    <Property Name="SSN" Type="nvarchar" MaxLength="30" />
+    <Property Name="PassportNo" Type="nvarchar" MaxLength="30" />
+    <Property Name="LocationCode" Type="char" MaxLength="10" />
+    <Property Name="LocationID" Type="bigint" />
+    <Property Name="DOB" Type="nvarchar" MaxLength="20" />
+    <Property Name="UpdateDateTime" Type="nvarchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="ServiceConfiguration">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FolderLocation" Type="nvarchar" MaxLength="500" />
+    <Property Name="Timer" Type="int" />
+  </EntityType>
+  <EntityContainer Name="PatientDbModelStoreContainer">
+    <EntitySet Name="PatientTbl" EntityType="Self.PatientTbl" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ServiceConfiguration" EntityType="Self.ServiceConfiguration" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

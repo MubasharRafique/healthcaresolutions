@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="PatientDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="PatientTbl">
+          <Key>
+            <PropertyRef Name="PatientID" />
+          </Key>
+          <Property Name="PatientID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Patient" Type="nvarchar" MaxLength="50" />
+          <Property Name="MRN" Type="bigint" />
+          <Property Name="CSN" Type="bigint" />
+          <Property Name="Gender" Type="nchar" MaxLength="10" />
+          <Property Name="HomePhone" Type="nvarchar" MaxLength="30" />
+          <Property Name="SSN" Type="nvarchar" MaxLength="30" />
+          <Property Name="PassportNo" Type="nvarchar" MaxLength="30" />
+          <Property Name="LocationCode" Type="char" MaxLength="10" />
+          <Property Name="LocationID" Type="bigint" />
+          <Property Name="DOB" Type="nvarchar" MaxLength="20" />
+          <Property Name="UpdateDateTime" Type="nvarchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="ServiceConfiguration">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FolderLocation" Type="nvarchar" MaxLength="500" />
+          <Property Name="Timer" Type="int" />
+        </EntityType>
+        <EntityContainer Name="PatientDbModelStoreContainer">
+          <EntitySet Name="PatientTbl" EntityType="Self.PatientTbl" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ServiceConfiguration" EntityType="Self.ServiceConfiguration" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="PatientDbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="PatientTbl">
+          <Key>
+            <PropertyRef Name="PatientID" />
+          </Key>
+          <Property Name="PatientID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Patient" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MRN" Type="Int64" />
+          <Property Name="CSN" Type="Int64" />
+          <Property Name="Gender" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="HomePhone" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="SSN" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="PassportNo" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="LocationCode" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="LocationID" Type="Int64" />
+          <Property Name="DOB" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="UpdateDateTime" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="ServiceConfiguration">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FolderLocation" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Timer" Type="Int32" />
+        </EntityType>
+        <EntityContainer Name="PatientDbEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="PatientTbls" EntityType="Self.PatientTbl" />
+          <EntitySet Name="ServiceConfigurations" EntityType="Self.ServiceConfiguration" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="PatientDbModelStoreContainer" CdmEntityContainer="PatientDbEntities">
+          <EntitySetMapping Name="PatientTbls">
+            <EntityTypeMapping TypeName="PatientDbModel.PatientTbl">
+              <MappingFragment StoreEntitySet="PatientTbl">
+                <ScalarProperty Name="PatientID" ColumnName="PatientID" />
+                <ScalarProperty Name="Patient" ColumnName="Patient" />
+                <ScalarProperty Name="MRN" ColumnName="MRN" />
+                <ScalarProperty Name="CSN" ColumnName="CSN" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="HomePhone" ColumnName="HomePhone" />
+                <ScalarProperty Name="SSN" ColumnName="SSN" />
+                <ScalarProperty Name="PassportNo" ColumnName="PassportNo" />
+                <ScalarProperty Name="LocationCode" ColumnName="LocationCode" />
+                <ScalarProperty Name="LocationID" ColumnName="LocationID" />
+                <ScalarProperty Name="DOB" ColumnName="DOB" />
+                <ScalarProperty Name="UpdateDateTime" ColumnName="UpdateDateTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ServiceConfigurations">
+            <EntityTypeMapping TypeName="PatientDbModel.ServiceConfiguration">
+              <MappingFragment StoreEntitySet="ServiceConfiguration">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="FolderLocation" ColumnName="FolderLocation" />
+                <ScalarProperty Name="Timer" ColumnName="Timer" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
