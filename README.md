@@ -41,10 +41,10 @@ Windows Service Project
    
     - PatientService class has one method  ReadPatientInfo(ServiceConfiguration configSettings)
     - In this function
-     1- We are reading information from text file default location c:\batch_Patient_12082020
-     2- Converting into data table ConvertHelper.ReadInfoFromtxtFile(configSettings.FolderLocation)
-     3- Converting into PatientTbl list ConvertHelper.ConvertDataTableToList<PatientTbl>(tbl)
-     4- Calling generic method for to insert or update data _dbService.InsertOrUpdate(dbName, tableName, "MRN", colunm, row)
+    - We are reading information from text file default location c:\batch_Patient_12082020
+    - Converting into data table ConvertHelper.ReadInfoFromtxtFile(configSettings.FolderLocation)
+    - Converting into PatientTbl list ConvertHelper.ConvertDataTableToList<PatientTbl>(tbl)
+    - Calling generic method for to insert or update data _dbService.InsertOrUpdate(dbName, tableName, "MRN", colunm, row)
     
         //Read Patients info from text file then insert new Or update exsiting into PatientTble db table
         //Read file location from databse
