@@ -38,55 +38,51 @@
               Helper.WriteToFile(ExceptionManager.GetExceptionStackTrace(ex) + "\nStack Trace\n" + ex.StackTrace);<br>
           }<br>
         }<br>
-   </p>
- 
- 
- </ol>
- <ol>
+   </p><br>
     <li>
-    Right click on patientService.ReadPatientInfo(configSettings) and go to defination or press F12
+    Right click on patientService.ReadPatientInfo(configSettings) and go to defination or press F12<br>
    </li>
-    In this function, 
-    1- We are reading information from text file default location c:\batch_Patient_12082020
-    2- Converting into data table
-    3- Converting into PatientTbl list
-    4- Calling generic method for to insert or update data
+    In this function, <br>
+    1- We are reading information from text file default location c:\batch_Patient_12082020<br>
+    2- Converting into data table<br>
+    3- Converting into PatientTbl list<br>
+    4- Calling generic method for to insert or update data<br>
  
    <p>
-       //Read Patients info from text file then insert new Or update exsiting into PatientTble db table
-        public void ReadPatientInfo(ServiceConfiguration configSettings)
+       //Read Patients info from text file then insert new Or update exsiting into PatientTble db table<br>
+        public void ReadPatientInfo(ServiceConfiguration configSettings)<br>
         {
-            try
+            try<br>
             {
                 //Read data from text file and insert into data table
-                var tbl = ConvertHelper.ReadInfoFromtxtFile(configSettings.FolderLocation);
+                var tbl = ConvertHelper.ReadInfoFromtxtFile(configSettings.FolderLocation);<br>
 
-                if (tbl.Rows.Count == 0)
-                    return;
+                if (tbl.Rows.Count == 0)<br>
+                    return;<br>
 
-                DBService _dbService = new DBService();
+                DBService _dbService = new DBService();<br>
 
-                List<string> colunm = new List<string>();
-                foreach (var col in tbl.Columns)
+                List<string> colunm = new List<string>();<br>
+                foreach (var col in tbl.Columns)<br>
                 {
-                    var removeSpaceBetweenWords = Regex.Replace(col.ToString(), @"\s", "");
+                    var removeSpaceBetweenWords = Regex.Replace(col.ToString(), @"\s", "");<br>
                     colunm.Add(removeSpaceBetweenWords);
-                }
+                }<br>
 
-                //Convert data table Patient Info into PatientTbl Class list
-                patientList = ConvertHelper.ConvertDataTableToList<PatientTbl>(tbl);
+                //Convert data table Patient Info into PatientTbl Class list<br>
+                patientList = ConvertHelper.ConvertDataTableToList<PatientTbl>(tbl);<br>
 
-                Helper.WriteToFile("...Data Entry Started");
-                foreach (var row in patientList)
+                Helper.WriteToFile("...Data Entry Started");<br>
+                foreach (var row in patientList)<br>
                 {
-                    //Inert or Update info into Database
-                    //I have consider MRN as unique value for to check info in database
-                    _dbService.InsertOrUpdate(dbName, tableName, "MRN", colunm, row);
-                }
-                Helper.WriteToFile("...Data Entry Finished");
+                    //Inert or Update info into Database<br>
+                    //I have consider MRN as unique value for to check info in database<br>
+                    _dbService.InsertOrUpdate(dbName, tableName, "MRN", colunm, row);<br>
+                }<br>
+                Helper.WriteToFile("...Data Entry Finished");<br>
 
-            }
-            catch (Exception)
+            }<br>
+            catch (Exception)<br>
             {
                 throw;
             }
