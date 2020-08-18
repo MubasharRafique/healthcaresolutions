@@ -39,8 +39,8 @@ Windows Service Project
   
   - Inside OnStart function right click on patientService.ReadPatientInfo(configSettings) and go to definition or press F12
    
-    -PatientService class has one method  ReadPatientInfo(ServiceConfiguration configSettings)
-    -In this function, 
+    - PatientService class has one method  ReadPatientInfo(ServiceConfiguration configSettings)
+    - In this function, 
      1- We are reading information from text file default location c:\batch_Patient_12082020
      2- Converting into data table - ConvertHelper.ReadInfoFromtxtFile(configSettings.FolderLocation)
      3- Converting into PatientTbl list - ConvertHelper.ConvertDataTableToList<PatientTbl>(tbl)
@@ -108,4 +108,13 @@ Windows Service Project
        - SQLManager class has 2 function
            Both are generic methods using it read or write into into database.can be reused for other tables
            
- require "How to deploy service"
+ ## How to deploy service
+ 
+    1- Build Project in Release Mode
+    2- Run CMD as Administrator
+    3- type cd then paste C:\Windows\Microsoft.NET\Framework64\v4.0.30319 and then enter
+    4- type InstallUtil.exe
+    5- then go to release folder and copy path and paste
+    6- copy \PatientRegistrationService.exe and paste then C:\Windows\Microsoft.NET\Framework64\v4.0.30319>InstallUtil.exe F:\Release\PatientRegistrationService.exe  
+       press enter
+    7- It will display a message successfully installed then search on windows for services and then press p look for your service right click and press start 
