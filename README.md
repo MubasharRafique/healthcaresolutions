@@ -15,6 +15,9 @@
    Right click on Service1 file and select view code option.<br>
    Few cofiguration and services initialization on the top.<br>
    Starting point is OnStart Funtion. In this function handling the logs,interval and performing the read,insert,update cases <br>
+  
+  </li>
+  
    <p>
        protected override void OnStart(string[] args)
        {
@@ -36,7 +39,6 @@
           }
         }
    </p>
-  </li>
  
  
  </ol>
