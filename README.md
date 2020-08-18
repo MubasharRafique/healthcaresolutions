@@ -1,16 +1,22 @@
 # HealthCare Solutions
 
-# Solution Includes 2 Projects
+# Prerequisites
 
+- Visual studio and Sql server
+- Sql server name (localdb)\MSSQLLocalDB. If wants to change the server name then update in windows service web Config file and also change in web project web config file.
+- Create Database for that Run Db Script
+- Copy Batch Patient file into c:\ drive otherwise in the logs it will show file not found. we can change file location from database.
+
+
+# Solution Includes 2 Projects
 
 - Windows Service Project
 - Web Project
 
-
 Windows Service Project
    
-   - For the windows service debugging. I have added windows form page (debug Form). It helps in the debugging also shows logs info on the view.
-   - For to test this simple start the service project
+   - For the debugging in windows service project. I have added windows form page (debug Form). It helps in the debugging also shows logs info on the view.
+   - For to test this start the service project and when form will open press start.
   
    - Go to Service project and right click on Service1 file and select view code option.
    - In this file, I have initialized few service classes on the top..
@@ -77,6 +83,12 @@ Windows Service Project
                     //Inert or Update info into Database<br>
                     //I have consider MRN as unique value for to check info in database
                     _dbService.InsertOrUpdate(dbName, tableName, "MRN", colunm, row);
+                }
+                 //After data entry delete the file
+                if (File.Exists(configSettings.FolderLocation))
+                {
+                    File.Delete(configSettings.FolderLocation);
+                    Helper.WriteToFile("...File deleted successfully");
                 }
                 Helper.WriteToFile("...Data Entry Finished");
 
