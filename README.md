@@ -1,19 +1,22 @@
 # HealthCare Solutions
 
-# Solution Include 2 Projects
+# Solution Includes 2 Projects
 
 
 - Windows Service Project
 - Web Project
 
 
-require Windows Service Project
+Windows Service Project
+   
+   - For the windows service debugging. I have added windows form page (debug Form). It helps in the debugging also shows logs info on the view.
+   - For to test this simple start the service project
   
-   - Right click on Service1 file and select view code option.
-   - Few cofiguration and services initialization on the top.
+   - Go to Service project and right click on Service1 file and select view code option.
+   - In this file, I have initialized few service classes on the top..
    - OnStart funtion is the starting point. 
    
-   -In this function handling the logs,interval and performing the read,insert,update cases
+   -In this function I am handling the logs,interval and performing the read,insert,update cases
    
     protected override void OnStart(string[] args)
     {
@@ -34,15 +37,17 @@ require Windows Service Project
           }
     }
   
-   - Right click on patientService.ReadPatientInfo(configSettings) and go to defination or press F12
+   - Inside OnStart function right click on patientService.ReadPatientInfo(configSettings) and go to definition or press F12
    
-  
+    PatientService class has one method  ReadPatientInfo(ServiceConfiguration configSettings)
     In this function, 
     1- We are reading information from text file default location c:\batch_Patient_12082020
-    2- Converting into data table
-    3- Converting into PatientTbl list
-    4- Calling generic method for to insert or update data
+    2- Converting into data table - ConvertHelper.ReadInfoFromtxtFile(configSettings.FolderLocation)
+    3- Converting into PatientTbl list - ConvertHelper.ConvertDataTableToList<PatientTbl>(tbl)
+    4- Calling generic method for to insert or update data - _dbService.InsertOrUpdate(dbName, tableName, "MRN", colunm, row);
+    
         //Read Patients info from text file then insert new Or update exsiting into PatientTble db table
+        //Read file location from databse
         public void ReadPatientInfo(ServiceConfiguration configSettings)
         {
             try
@@ -81,4 +86,27 @@ require Windows Service Project
             }
         }
         
+       - ConvertHelper class has 2 Methods
        
+         1- ConvertHelper.ReadInfoFromtxtFile(configSettings.FolderLocation);
+            Using this method to read info from database and parsing into data table. It is completely generic code. It can be reused for any other scenario.
+            
+         2- ConvertDataTableToList
+            using this method to parse data table data into specific class. This function is also generic and can be reused for other scenario.
+        
+        - DBService calss has 3 Methods
+          1- InsertOrUpdate
+             using this method to write sql query and set cols and row for query paramters and before insert or update checking in the database if value exist or not.
+             It is a generic method it can be reused for other tables
+             
+          2- CheckIfValueExist 
+             Check if value exist or not. if exist return true if not return false
+             
+          3- GetConfiguration
+             Get configuration settings from database like file location, timer value, logs file location etc
+         
+         - SQLManager class has 2 function
+           Both are generic methods using it read or write into into database.can be reused for other tables
+           
+          
+             
