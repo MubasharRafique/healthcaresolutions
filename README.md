@@ -101,25 +101,25 @@ Windows Service Project
         
      - ConvertHelper class has 2 Methods
        
-         1- ConvertHelper.ReadInfoFromtxtFile(configSettings.FolderLocation);
-            Using this method to read info from database and parsing into data table. It is completely generic code. It can be reused for any other scenario.
+      - ConvertHelper.ReadInfoFromtxtFile(configSettings.FolderLocation);
+       - Using this method to read info from database and parsing into data table. It is completely generic code. It can be reused for any other scenario.
             
-         2- ConvertDataTableToList
-            using this method to parse data table data into specific class. This function is also generic and can be reused for other scenario.
+      - ConvertDataTableToList
+       - using this method to parse data table data into specific class. This function is also generic and can be reused for other scenario.
         
       - DBService calss has 3 Methods
-          1- InsertOrUpdate
-             using this method to write sql query and set cols and row for query paramters and before insert or update checking in the database if value exist or not.
-             It is a generic method it can be reused for other tables
+       - InsertOrUpdate
+        - using this method to write sql query and set cols and row for query paramters and before insert or update checking in the database if value exist or not.
+        - It is a generic method it can be reused for other tables
              
-          2- CheckIfValueExist 
-             Check if value exist or not. if exist return true if not return false
+       - CheckIfValueExist 
+        - Check if value exist or not. if exist return true if not return false
              
-          3- GetConfiguration
-             Get configuration settings from database like file location, timer value, logs file location etc
+       - GetConfiguration
+        - Get configuration settings from database like file location, timer value, logs file location etc
          
        - SQLManager class has 2 function
-           Both are generic methods using it read or write into into database.can be reused for other tables
+        - Both are generic methods using it read or write into into database.can be reused for other tables
            
  ## How to deploy service
  
