@@ -33,7 +33,7 @@ namespace PatientRegistrationService
             {
                 Helper.WriteToFile("Starting service ...");
                 tmrExecutor.Elapsed += new ElapsedEventHandler(OnElapsedTime); // adding Event
-                tmrExecutor.Interval = configSettings.Timer; // Set your time here 
+                tmrExecutor.Interval = configSettings.Timer; // Reading timer info from database
                 tmrExecutor.Enabled = true;
                 tmrExecutor.Start();
 
@@ -43,6 +43,7 @@ namespace PatientRegistrationService
             }
             catch (Exception ex)
             {
+                //Helper file manage the logs
                 Helper.WriteToFile(ExceptionManager.GetExceptionStackTrace(ex) + "\nStack Trace\n" + ex.StackTrace);
             }
         }

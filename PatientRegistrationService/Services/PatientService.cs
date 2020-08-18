@@ -18,12 +18,13 @@ namespace PatientRegistrationService.Services
 
         private List<PatientTbl> patientList = new List<PatientTbl>();
         //Read Patients info from text file then insert new Or update exsiting into PatientTble db table
+        //Read file location from databse
         public void ReadPatientInfo(ServiceConfiguration configSettings)
         {
             try
             {
                 //Read data from text file and insert into data table
-                var tbl = ConvertHelper.ConvertToDataTable(configSettings.FolderLocation);
+                var tbl = ConvertHelper.ReadInfoFromtxtFile(configSettings.FolderLocation);
 
                 if (tbl.Rows.Count == 0)
                     return;

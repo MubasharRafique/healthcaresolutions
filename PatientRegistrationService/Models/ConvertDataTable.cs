@@ -21,7 +21,7 @@ namespace PatientRegistrationService.Models
     public static class ConvertHelper
     {
         //Read data from text file and convert into cols and rows datatable
-        public static DataTable ConvertToDataTable(string filePath)
+        public static DataTable ReadInfoFromtxtFile(string filePath)
         {
             DataTable tbl = new DataTable();
 
