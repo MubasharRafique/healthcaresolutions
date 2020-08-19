@@ -13,7 +13,7 @@
 - Windows Service Project
 - Web Project
 
-Windows Service Project
+## Windows Service Project
    
    - For the debugging in windows service project. I have added windows form page (debug Form). It helps in the debugging also shows logs info on the view.
    - For to test this start the service project and when form will open press start.
@@ -22,7 +22,7 @@ Windows Service Project
    - In this file, I have initialized few service classes on the top..
    - OnStart funtion is the starting point. 
    
-   -In this function I am handling the logs,interval and performing the read,insert,update cases
+   -In this function handling the logs,interval and performing the read,insert,update cases
    
     protected override void OnStart(string[] args)
     {
@@ -47,7 +47,7 @@ Windows Service Project
    
     - PatientService class has one method  ReadPatientInfo(ServiceConfiguration configSettings)
      In this function
-    - We are reading information from text file default location c:\batch_Patient_12082020
+    - Reading information from text file default location c:\batch_Patient_12082020
     - Converting into data table ConvertHelper.ReadInfoFromtxtFile(configSettings.FolderLocation)
     - Converting into PatientTbl list ConvertHelper.ConvertDataTableToList<PatientTbl>(tbl)
     - Calling generic method for to insert or update data _dbService.InsertOrUpdate(dbName, tableName, "MRN", colunm, row)
@@ -97,7 +97,7 @@ Windows Service Project
             {
                 throw;
             }
-        }
+          }
         
      - ConvertHelper class has 2 Methods
        
@@ -131,3 +131,26 @@ Windows Service Project
     6- copy \PatientRegistrationService.exe and paste complete path will be look like this
     C:\Windows\Microsoft.NET\Framework64\v4.0.30319>InstallUtil.exe F:\Release\PatientRegistrationService.exe and press enter
     7- It will display a message successfully installed then search on windows for services and then press p look for your service right click and press start 
+
+
+
+
+## Web Project
+1- Used entityframework database first approach.
+2- Used scaffolding to create a list view from Home controller Index function.
+  - Read patient info from db.
+  - Added search functionality for MRN db field.
+   
+        public ActionResult Index(string search)
+        {
+            List<PatientTbl> patientList = dbContext.PatientTbls.ToList();
+
+            if (!String.IsNullOrEmpty(search))
+            {
+                patientList = patientList.Where(s => Convert.ToString(s.MRN).Contains(search)).ToList();
+            }
+
+            return View(patientList);
+        }
+
+
