@@ -4,7 +4,7 @@
 
 - Visual studio and Sql server
 - Sql server name (localdb)\MSSQLLocalDB. If wants to change the server name then update in windows service web Config file and also change in web project web config file.
-- Create Database for that Run Db Script. Db Script file is inside project solution folder with name PatientDb.
+- Create Database for that Run Db Script. Db Script file is inside project solution folder with name PatientDb.sql.
 - Copy Batch Patient file into C:\BatchFiles\batch_Patient_12082020.txt drive otherwise in the logs it will show file not found. we can change file location from database.
 
 
